@@ -1,0 +1,10 @@
+<script>
+$(document).ready(function()
+{
+$("div").hide();
+  $("#pi").click(function()
+  	{
+	    $("div").slideToggle();
+	});
+});
+</script>

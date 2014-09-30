@@ -1,0 +1,83 @@
+Complete  Source Code:
+======================
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "<A href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</A>">
+<html xmlns="<A href="http://www.w3.org/1999/xhtml">http://www.w3.org/1999/xhtml</A>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Clinet side printer version</title>
+<style type="text/css">
+<!--
+.style1 {color: #0033FF}
+.style3 {
+ font-size: 12px;
+ font-family: Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+</head> 
+<script language="javascript">
+function Clickheretoprint()
+{ 
+  var disp_setting="toolbar=yes,location=no,directories=yes,menubar=yes,"; 
+      disp_setting+="scrollbars=yes,width=650, height=600, left=100, top=25"; 
+  var content_vlue = document.getElementById("print_content").innerHTML; 
+  
+  var docprint=window.open("","",disp_setting); 
+   docprint.document.open(); 
+   docprint.document.write('<html><head><title>Inel Power System</title>'); 
+   docprint.document.write('</head><body onLoad="self.print()"><center>');          
+   docprint.document.write(content_vlue);          
+   docprint.document.write('</center></body></html>'); 
+   docprint.document.close(); 
+   docprint.focus(); 
+}
+</script>
+<body bgcolor="#CCCCCC">
+<table width="80%" border="0" align="center" cellpadding="4" cellspacing="4" bgcolor="#FFFFFF">
+  <tr>
+    <td colspan="2" bgcolor="#CCCCFF"><h2 align="center" class="style1">Site Header Name </h2></td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top" bgcolor="#CCCCFF"> <table width="62%" border="0" align="center" cellpadding="0" 
+cellspacing="0">
+      <tr>
+        <td><a href="#">Link1</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">Link2</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">Link3</a></td>
+      </tr>
+    </table></td>
+    <td width="84%">
+    <div align="right"><a href="javascript:Clickheretoprint()"> Click here to print</a>    </div>
+    <div class="style3" id="print_content">Content for  id "print_content" Goes Here
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>Print content Print content Print content Print content Print content Print content Print content Print content 
+Print content Print content Print content Print content Print content Print content Print content Print content Print content 
+Print content Print content Print content Print content Print content Print content Print content Print content Print content 
+Print content Print content Print content Print content Print content Print content Print content Print content Print content 
+Print content Print content Print content Print content Print content Print content Print content Print content Print content 
+Print content Print content Print content Print<br />
+            <br /> 
+            content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content Print content Print 
+content Print content Print content Print content Print content Print content Print content Print content </td>
+        </tr>
+      </table>
+    </div></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCFF"><span class="style3">footer</span></td>
+  </tr>
+</table>
+</body>
+</html>
+

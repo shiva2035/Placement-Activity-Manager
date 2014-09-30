@@ -1,0 +1,20 @@
+/* Fonts */
+@font-face { font-family: 'BebasNeue';
+src: url('BebasNeue.eot');
+src: url('BebasNeue.woff') format('woff'), url('BebasNeue.ttf') format('truetype');}
+
+@font-face { font-family: 'HelveticaNeueRegular';
+src: url('HelveticaNeue.eot');
+src: url('HelveticaNeue.woff') format('woff'), url('HelveticaNeue.ttf') format('truetype');}
+
+@font-face { font-family: 'HelveticaNeueLight';
+src: url('HelveticaNeue-Light.eot');
+src: url('HelveticaNeue-Light.woff') format('woff'), url('HelveticaNeue-Light.ttf') format('truetype');}
+
+@font-face { font-family: 'HelveticaNeueBold';
+src: url('HelveticaNeue-Bold.eot');
+src: url('HelveticaNeue-Bold.woff') format('woff'), url('HelveticaNeue-Bold.ttf') format('truetype');}
+
+@font-face { font-family: 'HelveticaNeueCondensedBold';
+src: url('HelveticaNeue-CondensedBold.eot');
+src: url('HelveticaNeue-CondensedBold.woff') format('woff'), url('HelveticaNeue-CondensedBold.ttf') format('truetype');}

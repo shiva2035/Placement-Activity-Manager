@@ -1,0 +1,512 @@
+<head>
+<title>Resume Generator</title>
+<body style="background-color:#f8f8f8;margin-left:75px;margin-top:75px;margin-right:75px;">
+<script type="text/javascript" src="styles/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//Default Action
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+	
+	//On Click Event
+	$("ul.tabs li").click(function()
+	{
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active content
+		return false;
+	});
+
+});
+</script>
+<style type="text/css">
+h1 {font-size: 3em; margin: 20px 0;}
+//.container {width: 700px; margin: 10px auto;}
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px;
+	background: #e0e0e0;
+	overflow: hidden;
+	position: relative;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.2em;
+	padding: 0 20px;
+	border: 1px solid #fff;
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content {
+	padding: 10px;
+	background: #fff;
+	font-size: 1em;
+	border: 1px solid #999;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content h2 {
+	font-weight: normal;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 1.5em;
+	font-weight:bold;
+	margin-top:2px;
+}
+.tab_content h3 a{
+	color: #254588;
+}
+.tab_content img {
+	float: left;
+	margin: 0 10px 10px 0;
+	border: 1px solid #ddd;
+	padding: 4px;
+}
+</style>
+</head>	 
+			<div class="container">
+				<ul class="tabs">
+					<li><a href="#tab1">Personal Info</a></li>
+					<li><a href="#tab2">Educational Info</a></li>
+					<li><a href="#tab3">Career Info</a></li>
+					<li><a href="#tab4">Skills & Interests </a></li>
+					<li><a href="#tab5">Track Records</a></li>
+					<li><a href="#tab6">Strengths</a></li>
+				</ul>
+<form action=ResumeGen.php method=post>
+				<div class="tab_container">
+					<div id="tab1" class="tab_content">
+						<h2><b>Personal Information:</b></h2>
+<table align=center>
+	<tr><td>Full Name</td><td><input type=text name=full_name style="{width:400;}"></td></tr>
+	<tr><td>Father's Name</td><td><input type=text name=father_name style="{width:400;}"></td></tr>
+	<tr><td>Date of Birth</td><td><input type=text name=dob style="{width:400;}"></td></tr>
+	<tr><td>College Roll.No:</td><td><input type=text name=uid style="{width:400;}"></td></tr>
+	<tr><td>Gender</td><td><select name=gender><option value="select">Select Gender</option><option value="Male">Male</option><option value="FeMale">FeMale</option></select></td></tr>
+	<tr><td>Your Degree</td><td><input type=text readonly=readonly value=B.Tech(IT) name=degree style="{width:400;}"></td></tr>				
+	<tr><td>Select Your Branch</td><td >
+	<select name=dept>
+		<option value="--">Select Branch</option>
+		<option value="CSE">Computer Science and Engineering</option>
+		<option value="ECE">Electronics and Communications Engineering</option>
+		<option value="MECH">Mechanical Engineering</option>
+		<option value="CIVIL">Civil Engineering</option>
+		<option value="CHEM">Chemical Engineering</option>
+		<option value="MME">Material and Metallurgical Engineering</option>
+	</select>
+	</td></tr>
+	<tr><td>Hobbies</td><td><input type=text name=hobbies style="{width:400;}"></td></tr>
+	<tr><td>Permanent Address</td><td><textarea cols=23 rows=6 style="{width:400;}" name=per_add></textarea></td></tr>
+	<tr><td>Present Address</td><td><INPUT TYPE=TEXT readonly=readonly  value="Vill:Basar(RGUKT IIIT), Mdl:Mudhole,Dist:Adilabad,PIN:504107." style="{width:400;height:20;}" name=pres_add></td></tr>
+	<tr><td>Nationality</td><td><input readonly=readonly type=text value=Indian name=nation></td></tr>
+	<tr><td>Languages Known</td><td><input type=text style="{width:400;}" name=languages></td></tr>
+	<tr><td>Contact No(Cell)</td><td><input type=text style="{width:400;}" name=cell></td></tr>
+	<tr><td>e-Mail id</td><td><input type=text style="{width:400;}" name=email></td></tr>
+</table><br><br>				
+						</div>
+					</div>
+					<div id="tab2" class="tab_content">
+						<h2>Educational Info</h2>
+						<div style="border-bottom: 1px dashed #ddd;">
+<table width="100%" align="center" border="1">
+	<tbody>
+	<tr style="{background-color:silver;text-align:center;}"><td colspan="7"  ><b>Educational Qualifications:  <font color="darkred">If you have CGPA kindly convert into percentage and fill up.</font></b></td></tr>
+	<tr style="{background-color:silver;}">
+	<td nowrap="nowrap" width="20%" align="center"><b>Qualification</b></td>
+	<td nowrap="nowrap" width="20%" align="center"><b>Branch / Subjects Taken</b></td>
+	<td nowrap="nowrap" width="20%" align="center"><b>University / Board</b></td>
+	<td nowrap="nowrap" width="10%" align="center"><b>Month &amp; Year <br>of Pass</b></td>
+	<td nowrap="nowrap" width="10%" align="center"><b>% of marks</b></td>
+	</tr>
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg1"  onchange="hideShow1(0, this.value);">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch1">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ1">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass1>
+	</td>
+	</td>
+	<td>
+		<select name="percent1">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg2"  onchange="hideShow1(0, this.value);">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch2">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ2">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass2>
+	</td>
+	</td>
+	<td>
+		<select name="percent2">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg3"  onchange="hideShow1(0, this.value);">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch3">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ3">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass3>
+	</td>
+	</td>
+	<td>
+		<select name="percent3">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg4"  onchange="hideShow1(0, this.value);">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch4">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ4">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass4>
+	</td>
+	</td>
+	<td>
+		<select name="percent4">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg5">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch5">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ5">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass5>
+	</td>
+	</td>
+	<td>
+		<select name="percent5">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>			
+	<tr>
+	<td width="10%" align="center">
+		<select name="deg6">
+			<option value="--">Select Degree</option>
+			<option value="B.Tech(Year-IV)">B.Tech(Year-IV)</option> 
+			<option value="B.Tech(Year-III)">B.Tech(Year-III)</option> 
+			<option value="B.Tech(Year-II)">B.Tech(Year-II)</option> 
+			<option value="B.Tech(Year-I)">B.Tech(Year-I)</option> 
+			<option value="PUC">Pre University Course(+2)</option>
+			<option value="SSC/CBSE/ICSE">Matriculation(SSC)</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="branch6">
+			<option value="--">Select Branch</option>
+			<option value="CSE">Computer Science and Engineering</option>
+			<option value="ECE">Electronics and Communications Engineering</option>
+			<option value="MECH">Mechanical Engineering</option>
+			<option value="CIVIL">Civil Engineering</option>
+			<option value="CHEM">Chemical Engineering</option>
+			<option value="MME">Material and Metallurgical Engineering</option>
+			<option value="puc">M.Bi.P.C</option>
+		</select>
+	</td>
+	<td width="10%" align="center">
+		<select name="univ6">
+			<option value="--">Select University</option>
+			<option value="RGUKT IIIT Basar">RGUKT IIIT Basar</option>
+			<option value="AP SSC Board">AP SSC Board</option>
+		</select>
+	</td>
+	<td align="center">
+		<input type="text" name=ypass6>
+	</td>
+	</td>
+	<td>
+		<select name="percent6">
+			<option value="select">Select Percentage</option>
+		</select>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+						</div>
+					</div>							
+					<div id="tab3" class="tab_content">
+						<h2>Career Information</h2>
+						<div style="border-bottom: 1px dashed #ddd;">
+<div id="cobj">
+<b>&nbsp;&nbsp;Career Objective:</b><br><br>
+	<textarea style="{margin-left:75;width:80%;height:10%;}" name="cobj"></textarea><br>
+<br><b>Undergraduate Projects: </b><br><br>
+<table>
+	<tr style="{margin-left:75;background-color:#F8F8F8;}"><th>Sl.No</th><th style="{width:20%;}">Project Title</th><th style="{width:80%;}">Project Description</th></tr>
+	<tr><td>1</td><td><input type=text style="{width:100%;}" name="p1title"></td><td><input type=text style="{width:100%;}" name="p1des"></td></tr>
+	<tr><td>2</td><td><input type=text style="{width:100%;}" name="p2title"></td><td><input type=text style="{width:100%;}" name="p2des"></td></tr>
+	<tr><td>3</td><td><input type=text style="{width:100%;}" name="p3title"></td><td><input type=text style="{width:100%;}" name="p3des"></td></tr>
+	<tr><td>4</td><td><input type=text style="{width:100%;}" name="p4title"></td><td><input type=text style="{width:100%;}" name="p4des"></td></tr>
+	<tr><td>5</td><td><input type=text style="{width:100%;}" name="p5title"></td><td><input type=text style="{width:100%;}" name="p5des"></td></tr>
+</table>	
+</div>
+						</div>
+					</div>
+					<div id="tab4" class="tab_content">
+						<h2><b>Skills and Interests</b></h2>
+						<div>
+						<b>Skills and Interests:</b><br><br>
+<B>Technical Skills:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ts1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ts2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ts3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ts4"><br><br>
+<B>Programming Skills:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ps1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ps2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ps3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ps4"><br><br>
+<B>Communication Skills:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cs1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cs2"><br><br>
+<B>Operating Systems Used:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="os1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="os2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="os3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="os4"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="os5"><br><br>
+<B>Tools Familiar:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="tool1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="tool2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="tool3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="tool4"><br><br>
+<B>Areas of Interests:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ai1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ai2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ai3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="ai4"><br><br>
+						
+						</div>
+					</div>
+					<div id="tab5" class="tab_content">
+						<h2>Track Records</h2>
+						<div>
+						<br><B>Scholastic Achievements:</B>
+<br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="sa1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="sa2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="sa3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="sa4"><br><br>
+<br>
+<B>Competetions/Contests Participations:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cont1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cont2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cont3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="cont4"><br><br>
+<B>Extra Curricular Activities:</B><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="eaa1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="eaa2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="eaa3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="eaa4"><br><br>
+						</div>
+					</div>
+					<div id="tab6" class="tab_content">
+						<h2>Strengths</h2>
+						<div>
+	<input type=text style="{margin-left:75;width:80%;}" name="strength1"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="strength2"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="strength3"><br><br>
+	<input type=text style="{margin-left:75;width:80%;}" name="strength4"><br><br>
+						
+						</div>
+					</div>	
+				</div>
+<h2>Declaration:</h2>
+<p ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><input type=checkbox name="check">I hereby declare that
+the above-mentioned information is correct up to my knowledge and I
+bear the responsibility for the correctness of the above-mentioned
+particulars.</p>
+<center><br><br><input type=reset>&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit name="submit">						
+						</div>
+					</div>
+
+</form>			
